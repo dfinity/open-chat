@@ -3,6 +3,7 @@ pub mod add_hot_group_exclusions;
 pub mod add_reaction;
 pub mod approve_transfer;
 pub mod archive_unarchive_chats;
+pub mod bench;
 pub mod block_user;
 pub mod btc_address;
 pub mod c2c_accept_p2p_swap;

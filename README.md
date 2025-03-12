@@ -1,3 +1,9 @@
+Modified to build a canister useful for benchmarking changes to ICP. Build the test canister with
+```
+./scripts/generate_wasm.sh user
+```
+to produce `wasms/user.wasm.gz`.
+
 # OpenChat
 
 https://oc.app
