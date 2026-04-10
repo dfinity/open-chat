@@ -14,22 +14,22 @@ jobs:
     name: run fmt
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
       - uses: ./.github/workflows/setup-rust
-      - uses: actions-rust-lang/rustfmt@v1
+      - uses: actions-rust-lang/rustfmt@4066006ec54a31931b9b1fddfd38f2fdf2d27143 # v1.1.2
 
   clippy:
     name: run clippy
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
       - uses: ./.github/workflows/setup-rust
         with:
           cache: read
-      - uses: arduino/setup-protoc@v1
+      - uses: arduino/setup-protoc@149f6c87b92550901b26acd1632e11c3662e381f # v1
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions-rs/cargo@v1
+      - uses: actions-rs/cargo@844f36862e911db73fe0815f00a4a2602c279505 # v1.0.3
         with:
           command: clippy
           args: --tests -- -D warnings
@@ -38,11 +38,11 @@ jobs:
     name: run unit tests
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
       - uses: ./.github/workflows/setup-rust
         with:
           cache: read
-      - uses: actions-rs/cargo@v1
+      - uses: actions-rs/cargo@844f36862e911db73fe0815f00a4a2602c279505 # v1.0.3
         with:
           command: test
           args: --workspace --exclude integration_tests

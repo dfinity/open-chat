@@ -10,9 +10,9 @@ jobs:
     name: validate candid syntax
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
       - name: install didc 0.3.2
-        uses: supplypike/setup-bin@v1
+        uses: supplypike/setup-bin@62a30439c59b5bd1431e7d812ba65e7ec4962d87 # v1
         with:
           uri: https://github.com/dfinity/candid/releases/download/2023-07-11/didc-linux64
           name: didc
@@ -25,12 +25,12 @@ jobs:
     name: validate candid matches rust
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
       - uses: ./.github/workflows/setup-rust
         with:
           cache: read
       - name: install didc 0.3.2
-        uses: supplypike/setup-bin@v1
+        uses: supplypike/setup-bin@62a30439c59b5bd1431e7d812ba65e7ec4962d87 # v1
         with:
           uri: https://github.com/dfinity/candid/releases/download/2023-07-11/didc-linux64
           name: didc

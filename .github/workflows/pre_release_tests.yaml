@@ -18,12 +18,12 @@ jobs:
       - name: Install Rustup
         run: |
           curl --proto '=https' --tlsv1.2 --retry 10 --retry-connrefused -fsSL "https://sh.rustup.rs" | sh -s -- --default-toolchain none -y
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
       - uses: ./.github/workflows/setup-rust
         with:
           cache: read
       - name: Wait for wasms to be built
-        uses: lewagon/wait-on-check-action@v1.3.3
+        uses: lewagon/wait-on-check-action@595dabb3acf442d47e29c9ec9ba44db0c6bdd18f # v1.3.3
         with:
           ref: ${{ github.sha }}
           check-name: "Push canister wasms"
