@@ -16,21 +16,21 @@ jobs:
       run:
         working-directory: frontend
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
       - name: Restore dependencies from cache
-        uses: actions/cache/restore@v3
+        uses: actions/cache/restore@6f8efc29b200d32929f49075959781ed54ec270c # v3.5.0
         with:
           path: ~/.npm
           key: npm-${{ hashFiles('package-lock.json') }}
           restore-keys: npm-
       - name: Restore Turborepo files from cache
-        uses: actions/cache/restore@v3
+        uses: actions/cache/restore@6f8efc29b200d32929f49075959781ed54ec270c # v3.5.0
         with:
           path: frontend/.turbo
           key: ${{ runner.os }}-turbo-${{ github.sha }}
           restore-keys: |
             ${{ runner.os }}-turbo-
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@3235b876344d2a9aa001b8d1453c930bba69e610 # v3.9.1
         with:
           node-version: "20.17.0"
       - name: Build frontend
@@ -43,13 +43,13 @@ jobs:
           OC_METERED_APIKEY: DUMMY_METERED_APIKEY
       - name: Save dependencies to cache
         if: ${{ github.ref == 'refs/heads/master' }}
-        uses: actions/cache/save@v3
+        uses: actions/cache/save@6f8efc29b200d32929f49075959781ed54ec270c # v3.5.0
         with:
           path: ~/.npm
           key: npm-${{ hashFiles('package-lock.json') }}
       - name: Save Turborepo files to cache
         if: ${{ github.ref == 'refs/heads/master' }}
-        uses: actions/cache/save@v3
+        uses: actions/cache/save@6f8efc29b200d32929f49075959781ed54ec270c # v3.5.0
         with:
           path: frontend/.turbo
           key: ${{ runner.os }}-turbo-${{ github.sha }}
